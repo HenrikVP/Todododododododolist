@@ -1,6 +1,8 @@
 package com.example.todododododododolist;
 
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -116,5 +118,13 @@ public class TodoItem implements Serializable {
 
     public void setRepeatInterval(int repeatInterval) {
         this.repeatInterval = repeatInterval;
+    }
+
+
+    @NonNull
+    @Override
+    public String toString() {
+
+        return getName();
     }
 }

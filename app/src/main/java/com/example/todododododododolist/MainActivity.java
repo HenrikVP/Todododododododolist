@@ -2,6 +2,8 @@ package com.example.todododododododolist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,5 +44,24 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+
+        showList();
+    }
+
+    private void showList() {
+        ListView listview = findViewById(R.id.lv_todoitems);
+
+        ArrayAdapter<TodoItem> adapter = new ArrayAdapter<>(
+                getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                manager.getTodoItems());
+
+        listview.setAdapter(adapter);
+
+
+//        ((ListView)findViewById(R.id.lv_todoitems)).setAdapter(new ArrayAdapter<>(
+//                getApplicationContext(),
+//                android.R.layout.simple_list_item_1,
+//                manager.getTodoItems()));
     }
 }
